@@ -719,19 +719,19 @@
       </trans-unit>
       <trans-unit id="vsM4tSv" resname="There is already an account with this email">
         <source>There is already an account with this email</source>
-        <target>__There is already an account with this email</target>
+        <target>Il existe déjà un compte associé à cette adresse e-mail</target>
       </trans-unit>
       <trans-unit id="6h2NNfX" resname="You should agree to our terms.">
         <source>You should agree to our terms.</source>
-        <target>__You should agree to our terms.</target>
+        <target>Vous devez accepter nos conditions.</target>
       </trans-unit>
       <trans-unit id="B7yoMOR" resname="Please enter a password">
         <source>Please enter a password</source>
-        <target>__Please enter a password</target>
+        <target>S'il vous plaît, entrez un mot de passe</target>
       </trans-unit>
       <trans-unit id="_OmnKuR" resname="Your password should be at least {{ limit }} characters">
         <source>Your password should be at least {{ limit }} characters</source>
-        <target>__Your password should be at least {{ limit }} characters</target>
+        <target>Votre mot de passe doit contenir au moins {{ limit }} caractères</target>
       </trans-unit>
     </body>
   </file>
