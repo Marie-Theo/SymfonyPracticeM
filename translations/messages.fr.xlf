@@ -221,6 +221,46 @@
         <source>Nbrpages</source>
         <target>Nombre de page</target>
       </trans-unit>
+      <trans-unit id="hNzgF6z" resname="Are you sure you want to delete this item?">
+        <source>Are you sure you want to delete this item?</source>
+        <target>Êtes-vous sûr de vouloir supprimer cet élément?</target>
+      </trans-unit>
+      <trans-unit id="uGv_5v0" resname="Edit User">
+        <source>Edit User</source>
+        <target>Modifier l'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="PuhZjWG" resname="User index">
+        <source>User index</source>
+        <target>Utilisateur index</target>
+      </trans-unit>
+      <trans-unit id="aq2eM8Q" resname="Roles">
+        <source>Roles</source>
+        <target>Rôles</target>
+      </trans-unit>
+      <trans-unit id="qUyUsfE" resname="IsVerified">
+        <source>IsVerified</source>
+        <target>Est vérifié</target>
+      </trans-unit>
+      <trans-unit id="oj6ReV7" resname="New User">
+        <source>New User</source>
+        <target>Nouvel utilisateur</target>
+      </trans-unit>
+      <trans-unit id="bMOBDww" resname="Create new User">
+        <source>Create new User</source>
+        <target>Crée un nouvel utilisateur</target>
+      </trans-unit>
+      <trans-unit id="TkiKoB6" resname="User">
+        <source>User</source>
+        <target>utilisateur</target>
+      </trans-unit>
+      <trans-unit id="pRCwpOT" resname="Yes">
+        <source>Yes</source>
+        <target>Oui</target>
+      </trans-unit>
+      <trans-unit id="wd1MvZW" resname="No">
+        <source>No</source>
+        <target>Non</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

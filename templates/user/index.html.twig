@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'User index'|trans}}{% endblock %}
+
+{% block body %}
+    <h1>{{'User index'|trans}}</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{{'Id'|trans}}</th>
+                <th>{{'Email'|trans}}</th>
+                <th>{{'Roles'|trans}}</th>
+                <th>{{'IsVerified'|trans}}</th>
+                <th>{{'actions'|trans}}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>{{ user.isVerified ? 'Yes'|trans : 'No'|trans }}</td>
+                <td>
+                    {{ include('actions/_action_form.html.twig', {'object': user, 'app_delete': 'app_user_delete','app_show': 'app_user_show','app_edit': 'app_user_edit'}) }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">{{'no records found'|trans}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_new') }}"><button class="btn btn-primary">{{'Create new'|trans}}</button></a>
+{% endblock %}
