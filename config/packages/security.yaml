@@ -39,6 +39,7 @@ security:
         - { path: ^/user, roles: ROLE_ADMIN }
         - { path: ^/image, roles: ROLE_ADMIN }
         - { path: ^/credit, roles: ROLE_ADMIN }
+        - { path: ^/theme, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
     role_hierarchy:

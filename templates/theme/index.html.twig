@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'Theme index'|trans}}{% endblock %}
+
+{% block body %}
+    <h1>{{'Theme index'|trans}}</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{{'Id'|trans}}</th>
+                <th>{{'Title'|trans}}</th>
+                <th>{{'Description'|trans}}</th>
+                <th>{{'Step'|trans}}</th>
+                <th style='text-align: center;'>{{'actions'|trans}}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for theme in themes %}
+            <tr>
+                <td>{{ theme.id }}</td>
+                <td>{{ theme.title }}</td>
+                <td>{{ theme.description }}</td>
+                <td>{{ theme.step }}</td>
+                <td align='center'>
+                    {{ include('actions/_action_form.html.twig', {'object': theme, 'app_delete': 'app_theme_delete','app_show': 'app_theme_show','app_edit': 'app_theme_edit'}) }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">{{'no records found'|trans}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_theme_new') }}"><button class="btn btn-primary">{{'Create new'|trans}}</button></a>
+{% endblock %}
