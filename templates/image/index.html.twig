@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'Image index'|trans}}{% endblock %}
+
+{% block body %}
+    <h1>{{'Image index'|trans}}</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{{'Id'|trans}}</th>
+                <th>{{'Path'|trans}}</th>
+                <th>{{'Author Name'|trans}}</th>
+                <th>{{'Image'|trans}}</th>
+                <th style='text-align: center;'>{{'actions'|trans}}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for image in images %}
+            <tr>
+                <td>{{ image.id }}</td>
+                <td>{{ image.path }}</td>
+                <td>
+                    {% for credit in image.credits %}
+                        {{ credit.authorName }}
+                    {% endfor %}
+                </td>
+                <td><img src='/images/{{ image.path }}' height="35" /></td>
+                <td align='center'>
+                    {{ include('actions/_action_form.html.twig', {'object': image, 'app_delete': 'app_image_delete','app_show': 'app_image_show','app_edit': 'app_image_edit'}) }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">{{'no records found'|trans}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_image_new') }}"><button class="btn btn-primary">{{'Create new'|trans}}</button></a>
+{% endblock %}

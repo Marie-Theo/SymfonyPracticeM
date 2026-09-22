@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'Edit Image'|trans}}{% endblock %}
+
+{% block body %}
+    <h1>{{'Edit Image'|trans}}</h1>
+
+    {{ include('image/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_image_index') }}"><button class="btn btn-primary">{{'back to list'|trans}}</button></a>
+
+    {{ include('image/_delete_form.html.twig') }}
+{% endblock %}
