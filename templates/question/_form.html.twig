@@ -1,0 +1,19 @@
+{# templates/question/new.html.twig #}
+{{ form_start(form) }}
+    {{ form_row(form.text) }}
+    {{ form_row(form.explication) }}
+
+    <h3>{{'Answers'|trans}}</h3>
+    <ul class="answers"
+        data-index="{{ form.answers|length > 0 ? form.answers|last.vars.name + 1 : 0 }}"
+        data-prototype="{{ form_widget(form.answers.vars.prototype)|e('html_attr') }}"
+    >
+        {% for answer in form.answers %}
+            <li>{{ form_row(answer) }}</li>
+        {% endfor %}
+    </ul>
+
+    <button type="button" class="add_item_link" data-collection-holder-class="answers">{{'Add an answer'|trans}}</button>
+
+    <button type="submit btn-success">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

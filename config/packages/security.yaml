@@ -16,6 +16,8 @@ security:
             # Ensure dev tools and static assets are always allowed
             pattern: ^/(_profiler|_wdt|assets|build)/
             security: false
+            login_throttling:
+                max_attempts: 3
         main:
             lazy: true
             provider: app_user_provider
@@ -23,6 +25,8 @@ security:
                 login_path: app_login
                 check_path: app_login
                 enable_csrf: true
+            login_throttling:
+                max_attempts: 3
             logout:
                 path: app_logout
                 # where to redirect after logout
