@@ -1,4 +1,3 @@
-import './stimulus_bootstrap.js';
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -48,3 +47,4 @@ function addAnswerFormDeleteLink(item) {
     item.remove();
   });
 }
+import './stimulus_bootstrap.js';
