@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Question;
+use App\Entity\Theme;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -13,6 +15,12 @@ class QuestionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('theme', EntityType::class, [
+                'class' => Theme::class,
+                'choice_label' => static function (Theme $theme): string {
+                    return trim($theme->getId() . ' : ' . $theme->getTitle());
+                },
+            ])
             ->add('text')
             ->add('explication')
             ->add('answers', CollectionType::class, [
@@ -21,7 +29,8 @@ class QuestionType extends AbstractType
                 'allow_add' => true,
                 'allow_delete' => true,
                 'by_reference' => false,
-            ]);
+            ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -5,7 +5,7 @@
 {% block body %}
     <h1>{{"Edit SlideShow"|trans}}</h1>
 
-    {{ include('slide_show/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('actions/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('app_slide_show_index') }}"><button class="btn btn-primary">{{'back to list'|trans}}</button></a>
 

@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Create new Slide</h1>
 
-    {{ include('slide/_form.html.twig') }}
+    {{ include('actions/_form.html.twig') }}
 
-    <a href="{{ path('app_slide_index') }}">back to list</a>
+    <a href="{{ path('app_slide_index') }}"><button class="btn btn-primary">{{'back to list'|trans}}</button></a>
 {% endblock %}

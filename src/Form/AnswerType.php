@@ -16,10 +16,10 @@ class AnswerType extends AbstractType
         $builder
             ->add('text')
             ->add('is_correct')
-            ->add('question', EntityType::class, [
-                'class' => Question::class,
-                'choice_label' => 'id',
-            ])
+            // ->add('question', EntityType::class, [
+            //     'class' => Question::class,
+            //     'choice_label' => 'id',
+            // ])
         ;
     }
 

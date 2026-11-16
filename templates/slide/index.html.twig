@@ -1,18 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Slide index{% endblock %}
+{% block title %}{{"Slide index"|trans}}{% endblock %}
 
 {% block body %}
-    <h1>Slide index</h1>
+    <h1>{{"Slide index"|trans}}</h1>
 
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Position</th>
-                <th>actions</th>
+                <th>{{"Id"|trans}}</th>
+                <th>{{"Title"|trans}}</th>
+                <th>{{"Description"|trans}}</th>
+                <th>{{"Content"|trans}}</th>
+                <th>{{"Position"|trans}}</th>
+                <th>{{"actions"|trans}}</th>
             </tr>
         </thead>
         <tbody>
@@ -21,19 +22,19 @@
                 <td>{{ slide.id }}</td>
                 <td>{{ slide.title }}</td>
                 <td>{{ slide.description }}</td>
+                <td>{{ slide.content }}</td>
                 <td>{{ slide.position }}</td>
-                <td>
-                    <a href="{{ path('app_slide_show', {'id': slide.id}) }}">show</a>
-                    <a href="{{ path('app_slide_edit', {'id': slide.id}) }}">edit</a>
+                <td  align='center'>
+                    {{ include('actions/_action_form.html.twig', {'object': slide, 'app_delete': 'app_slide_delete','app_show': 'app_slide_show','app_edit': 'app_slide_edit'}) }}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="6">{{"no records found"|trans}}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_slide_new') }}">Create new</a>
+    <a href="{{ path('app_slide_new') }}"><button class="btn btn-primary">{{'Create new'|trans}}</button></a>
 {% endblock %}

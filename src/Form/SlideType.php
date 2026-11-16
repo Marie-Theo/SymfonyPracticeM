@@ -26,6 +26,7 @@ class SlideType extends AbstractType
             ])
             ->add('slide_show', EntityType::class, [
                 'class' => SlideShow::class,
+                'empty_data' => 'Aucun diaporama de créer',
                 'choice_label' => static function (SlideShow $slideShow): string {
                     return trim($slideShow->getId() . ' : ' . $slideShow->getTitle());
                 },
