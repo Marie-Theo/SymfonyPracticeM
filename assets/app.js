@@ -14,26 +14,23 @@ document
   });
 
 document
-  .querySelectorAll('ul.answers li')
+  .querySelectorAll('#question_answers fieldset')
   .forEach((answer) => {
     addAnswerFormDeleteLink(answer);
   });
 
 function addFormToCollection(e) {
-  const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+  const collectionHolder = document.querySelector('#' + e.currentTarget.dataset.collectionHolderClass);
 
-  const item = document.createElement('li');
+  const item = document.createElement('fieldset');
 
-  item.innerHTML = collectionHolder
-    .dataset
-    .prototype
-    .replace(/__name__/g, collectionHolder.dataset.index);
+  item.innerHTML = document.querySelector('.answers').dataset.prototype.replace(/__name__/g, document.querySelector('.answers').dataset.index);
 
   collectionHolder.appendChild(item);
 
   addAnswerFormDeleteLink(item);
 
-  collectionHolder.dataset.index++;
+  document.querySelector('.answers').dataset.index++;
 }
 
 function addAnswerFormDeleteLink(item) {

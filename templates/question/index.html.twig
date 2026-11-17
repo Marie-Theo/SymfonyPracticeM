@@ -11,7 +11,8 @@
                 <th>{{'Id'|trans}}</th>
                 <th>{{'Text'|trans}}</th>
                 <th>{{'Explication'|trans}}</th>
-                <th>{{'actions'|trans}}</th>
+                <th>{{"Number Answer"|trans}}</th>
+                <th style="text-align: center;">{{'actions'|trans}}</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
                 <td>{{ question.id }}</td>
                 <td>{{ question.text }}</td>
                 <td>{{ question.explication }}</td>
+                <td>{{ question.getAnswers|length }}</td>
                 <td align='center'>
                     {{ include('actions/_action_form.html.twig', {'object': question, 'app_delete': 'app_question_delete','app_show': 'app_question_show','app_edit': 'app_question_edit'}) }}
                 </td>

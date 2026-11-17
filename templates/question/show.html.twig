@@ -1,23 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Question{% endblock %}
+{% block title %}{{"Question"|trans}}{% endblock %}
 
 {% block body %}
-    <h1>Question</h1>
+    <h1>{{"Question"|trans}}</h1>
 
-    <table class="table">
+    <table class="table table-striped">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{"Id"|trans}}</th>
                 <td>{{ question.id }}</td>
             </tr>
             <tr>
-                <th>Text</th>
+                <th>{{"Text"|trans}}</th>
                 <td>{{ question.text }}</td>
             </tr>
             <tr>
-                <th>Explication</th>
+                <th>{{"Explication"|trans}}</th>
                 <td>{{ question.explication }}</td>
+            </tr>
+            <tr>
+                <th>{{"Answers"|trans}}</th>
+                <td>
+                    <ol class="m-0 p-0">
+                    {% for answer in 1..question.getAnswers|length %}
+                        <li
+                            {% if question.getAnswers[answer-1].isCorrect %} 
+                                class="bg-success p-1 px-2"
+                            {% else %}
+                                class="bg-danger p-1 px-2"
+                            {% endif %}
+                            >
+                        {{question.getAnswers[answer-1].text}}
+                        </li>
+                    {% endfor %}
+                    </ol>
+                </td>
             </tr>
         </tbody>
     </table>

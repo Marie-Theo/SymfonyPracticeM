@@ -17,9 +17,7 @@ class QuestionType extends AbstractType
         $builder
             ->add('theme', EntityType::class, [
                 'class' => Theme::class,
-                'choice_label' => static function (Theme $theme): string {
-                    return trim($theme->getId() . ' : ' . $theme->getTitle());
-                },
+                'choice_label' => 'title',
             ])
             ->add('text')
             ->add('explication')
