@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\Loader\Configurator\App;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -12,7 +12,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class WelcomeController extends AbstractController
 {
     #[Route('/', name: 'app_welcome')]
-    public function index(LoggerInterface $logger, TranslatorInterface $translator): Response
+    public function index(LoggerInterface $logger, TranslatorInterface $translator, Request $request): Response
     {
         $logger->info('Application is starting');
 
@@ -20,9 +20,11 @@ class WelcomeController extends AbstractController
 
         $appName = $translator->trans('DigitalFirstSteps');
 
+        dump($request->getSession()->all());
+        
         return $this->render('welcome/index.html.twig', [
-            'currentDate' => $currentDate->format('d/m/Y'),
-            'appName' => $appName,
+            'player' => $request->getSession()->get('player'),
+            'session' => $request->getSession()->get('session'),
         ]);
     }
 }
